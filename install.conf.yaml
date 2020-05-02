@@ -27,8 +27,8 @@
       path: files/Brewfile
     ~/.profile:
       path: files/profile
-    ~/.work-profile:
-      path: files/work-profile
+    # ~/.work-profile:
+    #   path: files/work-profile
     ~/.zshrc:
       path: files/zshrc
     ~/.vimrc:
@@ -43,8 +43,8 @@
       path: files/prettierrc
     ~/.aws/config:
       path: files/aws-config
-    ~/.aws/credentials:
-      path: files/aws-credentials
+    # ~/.aws/credentials:
+    #   path: files/aws-credentials
     ~/.editorconfig:
       path: files/editorconfig
 
