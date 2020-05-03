@@ -15,17 +15,18 @@
   keepBackup = false
   prompt = false
 [commit]
-  gpgsign = true
+  gpgsign = false
 
 [user]
   name = Steve McGee
   email = solodesign31@gmail.com
-  signingkey =
 
 [includeIf "gitdir:~/git/work/**"]
   path = ~/.gitconfig-work
 
 [includeIf "gitdir:~/git/workout/**"]
   name = Steve McGee
-  email = solodesign31@gmail.com
-  signingkey =
+  email = solodesign31@gmail.commit
+  
+[core]
+	editor = code --wait --new-window
