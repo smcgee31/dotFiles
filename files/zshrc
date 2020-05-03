@@ -21,7 +21,7 @@ case `uname` in
   ;;
 esac
 
-antigen bundle ~/.oh-my-zsh/themes smcgee31.zsh-theme --no-local-clone
+antigen bundle ~/.oh-my-zsh/custom/themes smcgee31.zsh-theme --no-local-clone
 
 # workaround for https://github.com/zsh-users/antigen/issues/675
 THEME=smcgee31
