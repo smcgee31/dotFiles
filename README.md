@@ -26,6 +26,7 @@ git update-index --assume-unchanged ./files/work-profile ./files/aws-credentials
 ```
 
 ## GPG Signing
+### Leaving this here but I'm not using GPG signing at this point
 
 ### Creating a new key
 
