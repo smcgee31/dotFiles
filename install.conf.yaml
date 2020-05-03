@@ -58,6 +58,10 @@
     stderr: true
     stdout: true
   -
+    command: ./scripts/zsh.sh
+    stdout: true
+    description: Updating zsh settings and themes
+  -
     command: ./scripts/mac-settings.sh
     stdout: true
     description: Updating mac settings
