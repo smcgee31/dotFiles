@@ -31,7 +31,6 @@ brew "schniz/tap/fnm"
 brew "react-native-cli"
 brew "cocoapods"
 cask "timestamp"
-cask "lastpass"
 cask "android-messages"
 cask "android-platform-tools"
 cask "appcleaner"
@@ -69,3 +68,4 @@ mas "AntiSleep", id: 946798523
 mas "LastPass", id: 926036361
 mas "OneDrive", id: 823766827
 mas "The Unarchiver", id: 425424353
+mas "Mail for Gmail", id: 1216244845
