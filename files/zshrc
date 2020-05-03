@@ -21,8 +21,10 @@ case `uname` in
   ;;
 esac
 
+antigen bundle ~/.oh-my-zsh/themes smcgee31.zsh-theme --no-local-clone
+
 # workaround for https://github.com/zsh-users/antigen/issues/675
-THEME=robbyrussell
+THEME=smcgee31
 antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
 # antigen theme robbyrussell
 

@@ -24,8 +24,8 @@ defaults write com.apple.dock tilesize -float 36
 defaults write com.apple.Siri StatusMenuVisible -bool false
 
 # Keyboard repeat
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 1.5
+defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 # Trackpad
 # enable tap to click for this user and for the login screen
