@@ -63,6 +63,7 @@ cask "dbeaver-community"
 cask "visual-studio-code"
 cask "vlc"
 cask "pdf-expert"
+cask "evernote"
 mas "Xcode", id: 497799835
 mas "AntiSleep", id: 946798523
 mas "LastPass", id: 926036361
