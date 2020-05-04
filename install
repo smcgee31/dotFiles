@@ -2,6 +2,12 @@
 
 set -e
 
+chmod a+x ./scripts/brew-update.sh
+chmod a+x ./scripts/mac-settings.sh
+chmod a+x ./scripts/npm.sh
+chmod a+x ./scripts/yarn.sh
+chmod a+x ./scripts/zsh.sh
+
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
 
