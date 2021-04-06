@@ -70,8 +70,11 @@ function git_stash_status {
 
 
 # Standard prompt
+# PROMPT='
+# $fg[silver]%w, %* $fg[blue]%n$fg[cyan]@$fg[yellow]%m $fg[green]%~$reset_color
+# %{$fg[magenta]%}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}$(git_stash_status)$(git_remote_status)%{$reset_color%} $ '
 PROMPT='
-$fg[silver]%w, %* $fg[blue]%n$fg[cyan]@$fg[yellow]%m $fg[green]%~$reset_color
+$fg[silver]%w, %* $fg[green]%~$reset_color
 %{$fg[magenta]%}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}$(git_stash_status)$(git_remote_status)%{$reset_color%} $ '
 
 # Prompt right aligned

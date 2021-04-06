@@ -1,9 +1,11 @@
 # Load general aliases
 alias cddv="cd ~/Documents/Developer"
+alias cdyn="cd ~/Documents/Developer/Yoodlize/yoodlize-native-2"
+alias cdyc="cd ~/Documents/Developer/Yoodlize/yoodlize-core"
 alias cdht="cd /Applications/MAMP/htdocs"
 alias c.="code ."
-alias rmnm="rm -rf node_modules/ && npm i"
-alias rmyn="rm -rf node_modules/ && yarn"
+alias rmnmnpm="rm -rf node_modules/ && npm i"
+alias rmnmyarn="rm -rf node_modules/ && yarn"
 alias yt="yarn test"
 
 
@@ -30,7 +32,8 @@ alias gd="git diff | mate"
 alias gla="git la"
 alias gd="git diff"
 alias gsta="git stash apply"
-alias gstu="git stash save -u"
+alias gstu="git stash push -u"
+alias gstum="git stash push -u -m"
 alias gstp="git stash pop"
 alias glog="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gl="git --no-pager log --oneline -10"

@@ -74,6 +74,10 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export RCRC=$HOME/dotfiles/rcrc
 export PATH="/usr/local/sbin:$PATH"
 
+# if you've installed Android Studio uncomment these lines
+export ANDROID_HOME=/Users/stevenmcgee/Library/Android/sdk
+export ANDROID_SDK_ROOT=/Users/stevenmcgee/Library/Android/sdk
+
 alias p4merge='/Applications/p4merge.app/Contents/MacOS/p4merge'
 alias compose='docker-compose'
 alias nvm='fnm'

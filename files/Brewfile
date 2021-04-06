@@ -18,7 +18,7 @@ brew "gnupg@1.4"
 brew "imagemagick@6"
 brew "mas"
 brew "psqlodbc"
-brew "ruby", link: true
+# brew "ruby", link: true
 brew "watchman"
 brew "telnet"
 brew "tree"
@@ -65,6 +65,7 @@ cask "evernote"
 mas "Xcode", id: 497799835
 mas "AntiSleep", id: 946798523
 mas "LastPass", id: 926036361
-mas "OneDrive", id: 823766827
 mas "The Unarchiver", id: 425424353
-mas "Mail for Gmail", id: 1216244845
+
+brew "chruby"
+brew "ruby-install"
