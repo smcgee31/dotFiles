@@ -1,6 +1,6 @@
 # zmodload zsh/zprof
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# source /usr/local/opt/chruby/share/chruby/auto.sh
 source $HOME/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
@@ -44,3 +44,4 @@ source ~/.profile
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+eval "$(rbenv init -)"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-
+# the following should update the scripts to be executable but I've found that sometimes I have to do this myself
 chmod a+x ./scripts/brew-update.sh
 chmod a+x ./scripts/mac-settings.sh
 chmod a+x ./scripts/npm.sh

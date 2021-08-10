@@ -27,6 +27,6 @@
 [includeIf "gitdir:~/git/workout/**"]
   name = Steve McGee
   email = solodesign31@gmail.commit
-  
+
 [core]
 	editor = code --wait --new-window

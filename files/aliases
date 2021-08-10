@@ -1,5 +1,7 @@
-# Load general aliases
+# General aliases
 alias cddv="cd ~/Documents/Developer"
+alias cdgc="cd ~/Documents/Developer/gcx-core"
+alias cdgw="cd ~/Documents/Developer/gcx-web"
 alias cdyn="cd ~/Documents/Developer/Yoodlize/yoodlize-native-2"
 alias cdyc="cd ~/Documents/Developer/Yoodlize/yoodlize-core"
 alias cdht="cd /Applications/MAMP/htdocs"
@@ -8,8 +10,17 @@ alias rmnmnpm="rm -rf node_modules/ && npm i"
 alias rmnmyarn="rm -rf node_modules/ && yarn"
 alias yt="yarn test"
 
+# GuideCX aliases
+alias nuke="./scripts/docker-nuke.sh"
+alias clean="./scripts/clean.sh"
+alias build="./scripts/build.sh"
+alias migrate="./scripts/db-migrate.sh"
+alias start="./scripts/start"
+alias getfresh="gstu && gfa && gff && gstp"
+alias getfreshnext="gstu && git pull origin nextjs && gstp"
+alias newbuild="clean && build && migrate && start"
 
-# Load git aliases
+# Git aliases
 alias gs="git status"
 alias ga="git add"
 alias gaa="git add -A"

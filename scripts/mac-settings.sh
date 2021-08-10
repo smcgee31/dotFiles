@@ -24,7 +24,7 @@ defaults write com.apple.dock tilesize -float 36
 defaults write com.apple.Siri StatusMenuVisible -bool false
 
 # Keyboard repeat
-defaults write NSGlobalDomain KeyRepeat -int 1.5
+defaults write NSGlobalDomain KeyRepeat -int 1.3
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 # Trackpad
@@ -48,11 +48,11 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 #     "com.apple.system.screen-saver",
 #     "com.apple.system.screen-lock"
 # )'
-# defaults write com.apple.controlstrip MiniCustomized '(
-#     "com.apple.system.brightness",
-#     "com.apple.system.volume",
-#     "com.apple.system.mute",
-#     "com.apple.system.screen-lock"
-# )'
+defaults write com.apple.controlstrip MiniCustomized '(
+    "com.apple.system.brightness",
+    "com.apple.system.volume",
+    "com.apple.system.mute",
+    "com.apple.system.screen-lock"
+)'
 
-# killall ControlStrip
+killall ControlStrip
