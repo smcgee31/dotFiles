@@ -13,7 +13,7 @@ alias yt="yarn test"
 alias cdcal="cd ~/Documents/Developer/api.calendar-events"
 alias cdcore="cd ~/Documents/Developer/gcx-core"
 alias cdgate="cd ~/Documents/Developer/graphql-gateway"
-alias cdweb="cd ~/Documents/Developer/web.host/web.legacy"
+alias cdweb="cd ~/Documents/Developer/web.host"
 alias cdcust="cd ~/Documents/Developer/web.host/web.customer"
 alias dev="npm run dev"
 
