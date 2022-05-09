@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/profile.pre.bash"
 # Set curl path
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
@@ -78,9 +80,6 @@ export PATH="/usr/local/sbin:$PATH"
 export ANDROID_HOME=/Users/stevenmcgee/Library/Android/sdk
 export ANDROID_SDK_ROOT=/Users/stevenmcgee/Library/Android/sdk
 
-alias p4merge='/Applications/p4merge.app/Contents/MacOS/p4merge'
-alias compose='docker-compose'
-alias nvm='fnm'
 
 autoload -U add-zsh-hook
 
@@ -98,3 +97,6 @@ add-zsh-hook chpwd _fnm_autoload_hook \
   && _fnm_autoload_hook
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/profile.post.bash"
