@@ -9,37 +9,6 @@ alias rmnmnpm="rm -rf node_modules/ && npm i"
 alias rmnmyarn="rm -rf node_modules/ && yarn"
 alias yt="yarn test"
 
-# GuideCX aliases
-alias cdcal="cd ~/Documents/Developer/api.calendar-events"
-alias cdcore="cd ~/Documents/Developer/gcx-core"
-alias cdgate="cd ~/Documents/Developer/graphql-gateway"
-alias cdweb="cd ~/Documents/Developer/web.host"
-alias cdcust="cd ~/Documents/Developer/web.host/web.customer"
-alias dev="npm run dev"
-
-# each of the getFresh aliases makes sure you are at the root dir so that git stash doesn't lose your files in workspace dirs
-alias getfreshweb="cdweb && gstu && gfa && gff && gstp"
-alias getfreshcore="cdcore && gstu && gfa && gff && gstp"
-alias getfreshcal="cdcal && gstu && gfa && gff && gstp"
-alias getfreshgate="cdgate && gstu && gfa && gff && gstp"
-alias getfreshmaster="gstu && git pull origin master && gstp"
-
-# core
-alias build="./scripts/build.sh"
-alias clean="./scripts/clean.sh"
-alias compose='docker-compose'
-alias migrate="./scripts/db-migrate.sh"
-alias newbuild="clean && build && migrate && start"
-alias nuke="./scripts/docker-nuke.sh"
-alias reseed="docker-compose -f docker-compose.yml run --rm api rails db:reset"
-alias resetdb="./scripts/run.sh rails db:reset"
-alias start="./scripts/start"
-alias startweblocal="(cd ~/Documents/Developer/web.host;./start-local.sh)"
-
-# proxy
-alias proxy:up="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm start)"
-alias proxy:down="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm run stop)"
-
 # Git aliases
 alias ga="git add"
 alias gaa="git add -A"
@@ -73,3 +42,35 @@ alias gstp="git stash pop"
 alias gstu="git stash push -u"
 alias gstum="git stash push -u -m"
 alias gstco="gstu && gco"
+
+# GuideCX aliases ------------------------------------------------------------
+alias cdcal="cd ~/Documents/Developer/api.calendar-events"
+alias cdcore="cd ~/Documents/Developer/gcx-core"
+alias cdgate="cd ~/Documents/Developer/graphql-gateway"
+alias cdweb="cd ~/Documents/Developer/web.host"
+alias cdcust="cd ~/Documents/Developer/web.host/web.customer"
+alias dev="npm run dev"
+
+# each of the getFresh aliases makes sure you are at the root dir so that git stash doesn't lose your files in workspace dirs
+alias getfreshweb="cdweb && gstu && gfa && gff && gstp"
+alias getfreshcore="cdcore && gstu && gfa && gff && gstp"
+alias getfreshcal="cdcal && gstu && gfa && gff && gstp"
+alias getfreshgate="cdgate && gstu && gfa && gff && gstp"
+alias getfreshmaster="gstu && git pull origin master && gstp"
+
+# core
+alias build="./scripts/build.sh"
+alias clean="./scripts/clean.sh"
+alias compose='docker-compose'
+alias migrate="./scripts/db-migrate.sh"
+alias newbuild="clean && build && migrate && start"
+alias nuke="./scripts/docker-nuke.sh"
+alias reseed="docker-compose -f docker-compose.yml run --rm api rails db:reset"
+alias resetdb="./scripts/run.sh rails db:reset"
+alias start="./scripts/start"
+alias startweblocal="(cd ~/Documents/Developer/web.host;./start-local.sh)"
+
+# proxy
+alias proxy:up="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm start)"
+alias proxy:down="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm run stop)"
+# END GuideCX aliases ---------------------------------------------------------
