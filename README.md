@@ -4,7 +4,7 @@ Huge "Thank You!" to [rizowski](https://github.com/rizowski) for turning me on t
 
 ## Getting started
 
-1. Clone down the repo
+1. Clone this repo
 1. run `./install`
 1. follow prompts
 1. done
@@ -26,9 +26,10 @@ git update-index --assume-unchanged ./files/work-profile ./files/aws-credentials
 ```
 
 ## GPG Signing
-### Leaving this here but I'm not using GPG signing at this point
 
 ### Creating a new key
+
+##### (Leaving this here but I'm not using GPG signing at this point)
 
 Requirements:
 
@@ -88,5 +89,10 @@ $ keybase pgp export -q 865BBEE --secret | gpg --allow-secret-key-import --impor
 https://josnun.com/posts/managing-dotfiles-and-zsh-with-dotbot-and-antigen/
 
 ### Things you might still need
+
 `yarn global add expo-cli`
 Zoom or WebEx or...
+
+### Things you might NOT need
+
+Do you really need every program in the Brewfile?

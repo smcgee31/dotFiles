@@ -79,6 +79,7 @@ $fg[silver]%w, %* $fg[green]%~$reset_color
 $ '
 
 # Prompt right aligned
+# RPROMPT='$(node_version)'
 RPROMPT='$(node_and_npm_version)'
 
 # git prompt info

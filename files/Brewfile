@@ -29,7 +29,7 @@ brew "yarn"
 brew "z"
 brew "zsh"
 brew "zsh-completions"
-brew "schniz/tap/fnm"
+brew "fnm"
 brew "cocoapods"
 cask "timestamp"
 cask "android-messages"
@@ -66,9 +66,10 @@ cask "vlc"
 cask "pdf-expert"
 cask "evernote"
 cask "raycast"
-mas "Xcode", id: 497799835
+# mas "Xcode", id: 497799835 # uncomment this line if you need to install Xcode
 mas "AntiSleep", id: 946798523
 # mas "LastPass", id: 926036361
+#  Bitwarden ???
 mas "The Unarchiver", id: 425424353
 
 brew "chruby"
