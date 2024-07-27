@@ -1,13 +1,12 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
-
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# vscode integration
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 
 # zmodload zsh/zprof
@@ -16,43 +15,46 @@ fi
 source $HOME/.antigen/antigen.zsh
 antigen use oh-my-zsh
 
-antigen bundle git
+# antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle colored-man-pages
-antigen bundle zsh-users/zsh-history-substring-search
-antigen bundle z
-antigen bundle docker-compose
-antigen bundle npm
+# antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle colored-man-pages
+# antigen bundle zsh-users/zsh-history-substring-search
+# antigen bundle z
+# antigen bundle docker-compose
+# antigen bundle npm
 
-case `uname` in
-  Darwin)
-    # Commands for OS X go here
-    antigen bundle osx
-  ;;
-  Linux)
-    # Commands for Linux go here
-  ;;
-esac
+# case `uname` in
+#   Darwin)
+#     # Commands for OS X go here
+#     antigen bundle macos
+#   ;;
+#   Linux)
+#     # Commands for Linux go here
+#   ;;
+# esac
 
-antigen bundle ~/.oh-my-zsh/custom/themes smcgee31.zsh-theme --no-local-clone
+# antigen bundle ~/.oh-my-zsh/custom/themes smcgee31.zsh-theme --no-local-clone
 
 # workaround for https://github.com/zsh-users/antigen/issues/675
 # THEME=smcgee31
 # antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
 # antigen theme robbyrussell
 antigen theme romkatv/powerlevel10k
-
 antigen apply
 
+plugins=(asdf)
 
 source ~/.aliases
 
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
 source ~/.profile
 
-source ~/smcgee31.zsh-theme
+# source ~/smcgee31.zsh-theme
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -60,21 +62,70 @@ source ~/smcgee31.zsh-theme
 
 
 # GuideCX specific stuff >>>
-function docker:clear {
-  docker ps -aq | \
-    while read id; do docker stop $id && docker rm $id; done
+# function docker:clear {
+#   docker ps -aq | \
+#     while read id; do docker stop $id && docker rm $id; done
+# }
+
+# function docker:nuke {
+#   docker:clear && \
+#   docker image ls | \
+#     tr -s ' ' | \
+#     awk '{print $3}' | \
+#     while read id; do docker image rm $id --force; done
+# }
+
+# Instructure specific stuff >>>
+gitiles() {
+    local proj=${1:-$(git config --get remote.origin.url|sed 's/.*[:\/]//')}
+    open "https://gerrit.instructure.com/plugins/gitiles/$proj/+/refs/heads/master/"
 }
 
-function docker:nuke {
-  docker:clear && \
-  docker image ls | \
-    tr -s ' ' | \
-    awk '{print $3}' | \
-    while read id; do docker image rm $id --force; done
+source /Users/steve.mcgee/Documents/Developer/dotFiles/files/chnix.sh
+chcg ()
+{
+    args=();
+    for arg in "$@";
+    do
+        args+=("${arg//./_}");
+    done;
+    chnix_specific_app chcg cg /Users/steve.mcgee/Documents/Developer/interop-team-scripts#cloudgate_v 12_1_3 "$args"
 }
 
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
-eval "$(rbenv init -)"
+# Go
+export PATH="$HOME/go/bin:$PATH"
+
+# Homebrew for M1 mac
+export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/sbin:$PATH"
+
+# vscode isn't setting the shell right unless you have this line
+SHELL=/bin/zsh
+
+# rapture
+eval "$( command rapture shell-init )"
+
+# terraform
+export PATH="/Users/$USER/.asdf/installs/terraform/1.2.5/bin:$PATH"
+
+# frum
+eval "$(frum init)"
+
+# Interop Team Scripts
+INTEROP_TEAM_SCRIPTS_DIR="/Users/steve.mcgee/Documents/Developer/interop-team-scripts"
+PATH=$PATH:"$INTEROP_TEAM_SCRIPTS_DIR/aud/bin"
+
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/openssl/lib/pkgconfig"
+
+# openssl
+# export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
+
+
+# eval "$(fnm env --use-on-cd)"
 
 export PATH="$PATH:${HOME}/Documents/Developer/flutter/bin"
 
@@ -82,5 +133,29 @@ export PATH="$PATH:${HOME}/Documents/Developer/flutter/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+# Nix
+fpath=($HOME/.nix-profile/share/zsh/site-functions $fpath)
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+# direnv for nix-shell
+eval "$(direnv hook zsh)"
+
+# End Nix
+
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# bun completions
+[ -s "/Users/steve.mcgee/.bun/_bun" ] && source "/Users/steve.mcgee/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export AWS_DEFAULT_REGION=us-east-1
+
+# Warpify subshells - for zsh subshells, add to ~/.zshrc.
+printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh"}}\x9c'

@@ -19,7 +19,7 @@
 
 [user]
 	name = Steve McGee
-	email = solodesign31@gmail.com
+	email = steve.mcgee@instructure.com
 
 [includeIf "gitdir:~/git/work/**"]
   path = ~/.gitconfig-work
@@ -39,3 +39,24 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+# INSTRUCTURE
+# these will allow you to do `git push xander` and it will push to gerrit and add the team member to the cc field
+[remote "xander"]
+  url = gerrit:canvas-lms
+  push = HEAD:refs/for/master%r=xmoffatt@instructure.com,cc=interop-team
+[remote "evan"]
+  url = gerrit:canvas-lms
+  push = HEAD:refs/for/master%r=xmoffatt@instructure.com,cc=interop-team
+[remote "tucker"]
+  url = gerrit:canvas-lms
+  push = HEAD:refs/for/master%r=xmoffatt@instructure.com,cc=interop-team
+[remote "ryan"]
+  url = gerrit:canvas-lms
+  push = HEAD:refs/for/master%r=xmoffatt@instructure.com,cc=interop-team
+[remote "team"]
+  url = gerrit:canvas-lms
+  push = HEAD:refs/for/master%cc=interop-team
+
+[alias]
+  cherry-pit="!f() { git rebase --rebase-merges --onto \"$1^\" \"$1\"; }; f"

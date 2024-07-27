@@ -4,10 +4,10 @@
 # Finder:
 defaults write com.apple.finder AppleShowAllFiles YES
 
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder ShowPathbar -bool true
@@ -26,6 +26,12 @@ defaults write com.apple.Siri StatusMenuVisible -bool false
 # Keyboard repeat
 defaults write NSGlobalDomain KeyRepeat -int 1.3
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
+
+# Keyboard controls (tab)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# take screenshots as jpg (usually smaller size) and not png
+defaults write com.apple.screencapture type jpg
 
 # Trackpad
 # enable tap to click for this user and for the login screen

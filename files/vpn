@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# This script is used to start and stop the Instructure VPN.
+
+COMMAND=${1:-start}
+GROUP=${2:-Employee_VPN}
+
+if [ "$COMMAND" = "start" ]; then
+  printf "Starting VPN...\n"
+  sudo openconnect --user=$SUDO_USER \
+                   --authgroup $GROUP \
+                   --background vpn.instructure.com \
+                   --quiet
+  exit $?
+fi
+
+if [ "$COMMAND" = "stop" ]; then
+  sudo pkill -2 openconnect
+  exit $?
+fi
+
+echo "Usage: $(basename "$0") start|stop"
+

@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/profile.pre.bash"
-
 # Set curl path
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
@@ -10,7 +7,7 @@ export GPG_TTY=$(tty)
 # who cares about casing? I don't
 set completion-ignore-case on
 
-. `brew --prefix`/etc/profile.d/z.sh
+# . `brew --prefix`/etc/profile.d/z.sh
 
 set_ran_date(){
   echo $(($(date +%s) / 60 / 60 / 24)) >! $1
@@ -57,47 +54,44 @@ swap_npm_user() {
    fi
 }
 
-add-zsh-hook chpwd swap_npm_user && swap_npm_user
+# add-zsh-hook chpwd swap_npm_user && swap_npm_user
 
-check_to_update $HOME/git/personal/dot/scripts/brew-update.sh brew 7
+check_to_update $HOME/Documents/Developer/dotFiles/scripts/brew-update.sh brew 7
 
-source ~/.work-profile
+# source ~/.work-profile
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-export PATH=$HOME/.fnm/current/bin:$PATH
-export FNM_MULTISHELL_PATH=$HOME/.fnm/current
-export FNM_DIR=$HOME/.fnm
-export FNM_NODE_DIST_MIRROR=https://nodejs.org/dist
-export FNM_LOGLEVEL=all
+# export PATH=$HOME/.fnm/current/bin:$PATH
+# export FNM_MULTISHELL_PATH=$HOME/.fnm/current
+# export FNM_DIR=$HOME/.fnm
+# export FNM_NODE_DIST_MIRROR=https://nodejs.org/dist
+# export FNM_LOGLEVEL=all
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export RCRC=$HOME/dotfiles/rcrc
 export PATH="/usr/local/sbin:$PATH"
 
 # if you've installed Android Studio uncomment these lines
-export ANDROID_HOME=/Users/stevenmcgee/Library/Android/sdk
-export ANDROID_SDK_ROOT=/Users/stevenmcgee/Library/Android/sdk
+# export ANDROID_HOME=/Users/stevenmcgee/Library/Android/sdk
+# export ANDROID_SDK_ROOT=/Users/stevenmcgee/Library/Android/sdk
 
 
-autoload -U add-zsh-hook
+# autoload -U add-zsh-hook
 
-_fnm_autoload_hook () {
-  if [[ -f .node-version && -r .node-version ]]; then
-    echo "fnm: Found .node-version"
-    fnm use
-  elif [[ -f .nvmrc && -r .nvmrc ]]; then
-    echo "fnm: Found .nvmrc"
-    fnm use
-  fi
-}
+# _fnm_autoload_hook () {
+#   if [[ -f .node-version && -r .node-version ]]; then
+#     echo "fnm: Found .node-version"
+#     fnm use
+#   elif [[ -f .nvmrc && -r .nvmrc ]]; then
+#     echo "fnm: Found .nvmrc"
+#     fnm use
+#   fi
+# }
 
-add-zsh-hook chpwd _fnm_autoload_hook \
-  && _fnm_autoload_hook
+# add-zsh-hook chpwd _fnm_autoload_hook \
+#   && _fnm_autoload_hook
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/profile.post.bash"

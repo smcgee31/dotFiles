@@ -1,18 +1,22 @@
 # General aliases
 alias c.="code ."
 alias cddv="cd ~/Documents/Developer"
-alias cdyc="cd ~/Documents/Developer/Yoodlize/yoodlize-core"
-alias cdyn="cd ~/Documents/Developer/Yoodlize/yoodlize-native-2"
-alias nvm='fnm'
+# alias nvm='fnm'
 alias p4merge='/Applications/p4merge.app/Contents/MacOS/p4merge'
 alias rmnmnpm="rm -rf node_modules/ && npm i"
 alias rmnmyarn="rm -rf node_modules/ && yarn"
 alias yt="yarn test"
 
+# for M1 mac - sometimes you have to be on a specific architecture to
+# install and compile a package or tool
+# Check your current architecture with 'arch'
+alias armzsh="arch -arm64 zsh" # this one seems to run fine
+alias intelzsh="arch -x86_64 zsh" # this one doesn't
+
 # Git aliases
 alias ga="git add"
 alias gaa="git add -A"
-alias gb="git branch"
+alias gb="git --no-pager branch"
 alias gba="git branch -a"
 alias gbd="git branch -d"
 alias gbv="git branch -vv"
@@ -22,55 +26,101 @@ alias gcm="git commit -m"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 alias gcom="git checkout master"
+alias gcomain= "git checkout main"
 alias gcq="git add -A && git commit -m 'quick commit'"
-alias gd="git diff | mate"
 alias gd="git diff"
 alias gfa="git fetch --all"
 alias gff="git merge --ff-only"
 alias gl="git --no-pager log --oneline -10"
 alias gl2="git --no-pager log --oneline -20"
-alias gla="git la"
 alias glog="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias glog1="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -10"
+alias glog2="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -20"
+alias glog4="git --no-pager log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -40"
+alias gprm="gpull" # see gpull alias below
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gpfo="git push --force-with-lease origin"
 alias gpo="git push origin"
 alias grh1="git reset HEAD~1"
 alias gs="git status"
+alias gstl="git --no-pager stash list"
 alias gsta="git stash apply"
 alias gstp="git stash pop"
 alias gstu="git stash push -u"
 alias gstum="git stash push -u -m"
 alias gstco="gstu && gco"
+alias gsw="git switch" # similar to git checkout <branch>
+alias gswc="git switch -c" #create , similar to git checkout -b <new_branch>
+alias gswm="git switch master"
+alias gswmain="git switch main"
+alias gr="git restore" # similar to git checkout
 
-# GuideCX aliases ------------------------------------------------------------
-alias cdcal="cd ~/Documents/Developer/api.calendar-events"
-alias cdcore="cd ~/Documents/Developer/gcx-core"
-alias cdgate="cd ~/Documents/Developer/graphql-gateway"
-alias cdweb="cd ~/Documents/Developer/web.host"
-alias cdcust="cd ~/Documents/Developer/web.host/web.customer"
+# Gerrit
+alias gpohrfm="gpo HEAD:refs/for/master"
+
+# Instructure aliases ------------------------------------------------------------
+alias cddev="cd ~/Documents/Developer/"
+alias cdcan="cd ~/Documents/Developer/canvas-lms"
+alias cdlep="cd ~/Documents/Developer/live-events-publish"
+alias cdless="cd ~/Documents/Developer/live-events-subscriptions"
 alias dev="npm run dev"
+alias gpull="git pull --rebase origin master && git pull origin --tags"
+
+alias restartdnsmasq="sudo brew services restart dnsmasq"
+alias vpn="sudo vpn"
+alias vpnstop="sudo vpn stop"
+alias ifconfig42="sudo ifconfig lo0 alias 192.168.42.42"
+alias insopshub="vaulted -n insopshub"
+alias ri="rapture init"
+alias ra="rapture assume"
+
+alias dc="docker-compose"
+alias dcr="docker-compose run --rm"
+alias railsc="docker-compose run --rm web rails c"
+alias webbashc="docker-compose run --rm web bash"
+alias webpackbashc="docker-compose run --rm webpack bash" # good for doing yarn and then yarn build to fix webpack or JS issues
+alias canvasdebug="docker-compose exec web bin/rdbg --attach" # this is for running canvas in debug mode
+alias weblog="dc exec web tail -f log/development.log"
+
+# easy rails log:
+#     puts ["#"*60, " ", "data: #{data}", " ", "#"*60].each { Rails.logger.info(_1) }
+
+# for getting a rails console in an ssh'd box
+#     /var/web/canvas/current/bin/rails console
+
+# Note about docker:
+#     docker-compose run --rm   << this opens a new temporary container then removes the temporary container after the command is run
+#     docker-compose exec       << this runs the command in the existing container, is ususally quicker, and sometimes necessary
+
+# Ruby aliases ------------------------------------------------------------
+alias rrun="bin/rails server"
+alias rt="rails test"
+alias rti="rails test:integration"
+
+# Yoodlize aliases ------------------------------------------------------------
+alias cdyc="cd ~/Documents/Developer/Yoodlize/yoodlize-core"
+alias cdyn="cd ~/Documents/Developer/Yoodlize/yoodlize-native-2"
+
+# GuideCX core commands
+# alias build="./scripts/build.sh"
+# alias clean="./scripts/clean.sh"
+# alias compose='docker-compose'
+# alias migrate="./scripts/db-migrate.sh"
+# alias newbuild="clean && build && migrate && start"
+# alias nuke="./scripts/docker-nuke.sh"
+# alias reseed="docker-compose -f docker-compose.yml run --rm api rails db:reset"
+# alias resetdb="./scripts/run.sh rails db:reset"
+# alias start="./scripts/start"
+# alias startweblocal="(cd ~/Documents/Developer/web.host;./start-local.sh)"
+
+# GuideCX proxy commands
+# alias proxy:up="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm start)"
+# alias proxy:down="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm run stop)"
 
 # each of the getFresh aliases makes sure you are at the root dir so that git stash doesn't lose your files in workspace dirs
-alias getfreshweb="cdweb && gstu && gfa && gff && gstp"
-alias getfreshcore="cdcore && gstu && gfa && gff && gstp"
-alias getfreshcal="cdcal && gstu && gfa && gff && gstp"
-alias getfreshgate="cdgate && gstu && gfa && gff && gstp"
-alias getfreshmaster="gstu && git pull origin master && gstp"
-
-# core
-alias build="./scripts/build.sh"
-alias clean="./scripts/clean.sh"
-alias compose='docker-compose'
-alias migrate="./scripts/db-migrate.sh"
-alias newbuild="clean && build && migrate && start"
-alias nuke="./scripts/docker-nuke.sh"
-alias reseed="docker-compose -f docker-compose.yml run --rm api rails db:reset"
-alias resetdb="./scripts/run.sh rails db:reset"
-alias start="./scripts/start"
-alias startweblocal="(cd ~/Documents/Developer/web.host;./start-local.sh)"
-
-# proxy
-alias proxy:up="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm start)"
-alias proxy:down="(cd ~/Documents/Developer/dx.utilities/apps/proxy;npm run stop)"
-# END GuideCX aliases ---------------------------------------------------------
+# alias getfreshweb="cdweb && gstu && gfa && gff && gstp"
+# alias getfreshcore="cdcore && gstu && gfa && gff && gstp"
+# alias getfreshcal="cdcal && gstu && gfa && gff && gstp"
+# alias getfreshgate="cdgate && gstu && gfa && gff && gstp"
+# alias getfreshmaster="gstu && git pull origin master && gstp"

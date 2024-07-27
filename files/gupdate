@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# this is for working with Instructure because of the methods of
+# "pull/rebase master incl tags"
+# other companies might not do things this way
+
+# if/when you make changes to this file you need to copy it to
+# the proper location for a global function. note that this
+# happens already when you run files/zsh.sh
+# sudo cp ./files/gupdate /usr/local/bin/gupdate
+
+GREEN="\033[32m"
+ENDCOLOR="\033[0m"
+
+# check if git working directory is clean
+# if not, stage and stash all files
+if [[ -n $(git status -s) ]]; then
+    echo -e "${GREEN}\nStaging all files...\n${ENDCOLOR}"
+    git add .
+    echo -e "${GREEN}\nStashing all files...\n${ENDCOLOR}"
+    git stash push -u -m "gupdate_stash"
+fi
+
+echo -e "${GREEN}\nPull and rebase (including tags)...\n${ENDCOLOR}"
+
+git pull --rebase origin master
+git pull origin --tags
+
+# check if there is a git stash called "gupdate_stash",if so, pop it
+if [[ -n $(git stash list | grep gupdate_stash) ]]; then
+    echo -e "${GREEN}\nPopping your stashed files...\n${ENDCOLOR}"
+    git stash pop
+fi
+
+echo -e "${GREEN}\nRight back where you started with newly rebased master, enjoy!\n${ENDCOLOR}"
